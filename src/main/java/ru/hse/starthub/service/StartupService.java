@@ -12,9 +12,10 @@ import java.util.Optional;
 @Service
 public class StartupService {
 
-    @Autowired
+    //    @Autowired
     StartupRepository repository;
 
+    @Autowired
     public StartupService(StartupRepository repository) {
         this.repository = repository;
     }
@@ -28,7 +29,7 @@ public class StartupService {
         }
     }
 
-    public StartupModel update(StartupModel startupModel) throws Exception {
+    public StartupModel update(StartupModel startupModel) {
         Optional<StartupModel> optionalStartup = repository.findById(startupModel.getId());
         if (optionalStartup.isEmpty()) {
             throw new WebApplicationException("You are trying to update non-existent startup", Response.Status.BAD_REQUEST);

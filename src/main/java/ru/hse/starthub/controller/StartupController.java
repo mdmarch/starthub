@@ -1,5 +1,6 @@
 package ru.hse.starthub.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.hse.starthub.model.StartupModel;
 import ru.hse.starthub.service.StartupService;
@@ -12,6 +13,7 @@ public class StartupController {
 
     private final StartupService service;
 
+    @Autowired
     public StartupController(StartupService service) {
         this.service = service;
     }
@@ -25,7 +27,7 @@ public class StartupController {
     @PutMapping
     @PatchMapping
     public Response update(StartupModel startup) {
-        StartupModel ret = service.create(startup);
+        StartupModel ret = service.update(startup);
         return Response.ok(startup).build();
     }
 
