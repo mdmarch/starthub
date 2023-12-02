@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="20231202_create_users"
+               id="20231202" author="kogan">
+        <sql>
+            create table users(id varchar(36) primary key, first_name varchar, last_name varchar, description varchar,
+            email
+            varchar, password varchar);
+
+            insert into users values ('913c8bbc-d54f-4394-bfba-985fe58441de', 'Egor', 'Zemlyanoy', 'Egor is bad at
+            paying parking', 'egor@egor.ru', 'password' );
+            insert into users values ('b4acdced-931e-4346-9f39-43f6851389fe', 'Maria', 'Kogan', 'Maria is probably
+            better at paying parking', 'kogan@kogan.ru', 'password' );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
